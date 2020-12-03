@@ -9,34 +9,35 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
    <link rel="stylesheet" type="text/css" href="style.css">
-   <link rel="stylesheet" type="text/css" href="script.js">
+ 
 
 </head>
 <body>
 
 <div class="calc-grid" style="">
 	<div  class="result">
-		<div class="prev-result">1234</div>
-		<div class="main-result">5678</div> 
+		<div data-prev-result class="prev-result"></div>
+		<div data-main-result class="main-result"></div> 
 	</div>
-	<button class="take-two-rows" style="">AC</button>
-	<button >Del</button>
-	<button>\</button>
-	<button>1</button>
-	<button>2</button>
-	<button>3</button>
-	<button>*</button>
-	<button>4</button>
-	<button>5</button>
-	<button>6</button>
-	<button>=</button>
-	<button>7</button>
-	<button>8</button>
-	<button>9</button>
-	<button>-</button>
-	<button>.</button>
-	<button>0</button>
-	<button class="take-two-rows">=</button>
+	<button class="take-two-rows" data-all-clear>AC</button>
+	<button data-delete>Del</button>
+	<button data-operation>/</button>
+	<button data-num>1</button>
+	<button data-num>2</button>
+	<button data-num>3</button>
+	<button data-operation>*</button>
+	<button data-num>4</button>
+	<button data-num>5</button>
+	<button data-num>6</button>
+	<button data-operation>+</button>
+	<button data-num>7</button>
+	<button data-num>8</button>
+	<button data-num>9</button>
+	<button data-operation>-</button>
+	<button data-num>.</button>
+	<button data-num>0</button>
+	<button class="take-two-rows" data-equals>=</button>
  </div>
+ <script src="calc.js"></script>
 </body>
 </html>
