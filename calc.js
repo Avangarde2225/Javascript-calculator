@@ -17,6 +17,7 @@ class Calculate {
       }
   
     delete(){
+        this.mainResult = this.mainResult.toString().slice(0,-1)
 
     }
 
@@ -34,6 +35,7 @@ class Calculate {
     operatorChoice(theOperator) {
         //lets prevent check if the mainresult is empty so that nothing the function doesn't execute anyother thing
         if (this.mainResult === '' ) return
+        //to always make sure that you type somehting in the main result
         if (this.prevResult !== ''){
             this.compute()
         }
@@ -41,8 +43,10 @@ this.operation = theOperator
 this.prevResult = this.mainResult
 this.mainResult = ""
             }
-// the compute value will take all t he necessary stuff we need t
+// the compute value will take all t he necessary stuff we need 
+//tow methods are calling compute now: if you hit on the operands, you will call the compute method, if ypu also hot on the operands btns, you will call the compute method on line 39
     compute() {
+        // so to compute we have already settled that both prev and main result must have a value in our operationChoice method
         let computation
         const prev = parseFloat(this.prevResult)
         const main = parseFloat(this.mainResult)
@@ -65,8 +69,9 @@ this.mainResult = ""
             default:
                 return
         }
+        //when the equals buttonis clicked, the operand memory is removed..wow!  that is by setting operand to undefined
         this.mainResult = computation
-        this.operation = undefined
+        this.operation = undefined 
         this.prevResult = ''
     }
     //update the display
@@ -117,6 +122,11 @@ equalsBtn.addEventListener('click', button =>{
 
 allClearBtn.addEventListener('click', button =>{
     calc.allClear()
+    calc.updatedisplay()
+})
+
+deleteBtn.addEventListener('click', button => {
+    calc.delete()
     calc.updatedisplay()
 })
 
