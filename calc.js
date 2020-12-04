@@ -5,6 +5,7 @@ class Calculate {
         this.prevResultBtnText = prevResulted //  you can also actually reference the main variable itself of the queryselectors directly  and not the parameters e.g prevResultBtnTextElement 
         this.mainResultBtnText = mainResulted 
         this.allClear()
+        console.log(this.prevResult);
     
 
         //I get the logic: this is what is happening : the variables this.prevResult and this.mainResult are all in the constructor already loaded via this.allClear() method/function...so  the value of this.prevResult and this.mainResult changes() with every time the button is clicked from line 60 or there about
@@ -74,14 +75,44 @@ this.mainResult = ""
         this.operation = undefined 
         this.prevResult = ''
     }
-    //update the display
+    //helper function
+    getDisplay(number){
+    //update the display and make our numbers to have commas
 
-    updatedisplay() {
-        this.mainResultBtnText.innerText = this.mainResult  
-        this.prevResultBtnText.innerText = this.prevResult
+    //lets make the string number work very fine and  not preventing a decimals from inputing
+
+    const stringNum = number.toString()
+    const digits = parseFloat(stringNum.split('.')[0])//here we split the string because we want a single digirt before the dot('.') and parse/ convert it to numbers/decimals when necessary depending on the code
+    console.log(digits + "thisi sithe diti");
+    const decimals = stringNum.split('.')[1]
+    //the above code helps to check if there is no digits before the 
+    let digitOutput
+    //lets make sure that an actual digit was inputed and not a decimal using the isNaN method
+    if (isNaN(digits)) {
+        digitOutput = ''
+        //else if the input entered is an actual didgits, we will want to use the locale string
+    }else {
+        // we have to make it split with commas here and also make sure that there are no decimals places when it gets convereted to string before this
+        digitOutput = digits.toLocaleString('en', {maximumFractionDigits: 0})
     }
-    //next is lets look at the different properties our users need to know    
+    if (decimals != null) {
+        console.log(decimals+ 'this is the deci');
+        return digitOutput + decimals
+    }else  {
+        return digitOutput
+    }
+
 }
+    updatedisplay() {
+        this.mainResultBtnText.innerText = this.getDisplay(this.mainResult) 
+        if (this.operation != null){
+            this.prevResultBtnText.innerText= this.getDisplay(this.prevResult) + " " + this.operation 
+        } else {
+            this.prevResultBtnText.innerText = ""
+        }
+     }
+    //next is lets look at the different properties our users need to know    
+}  
 
 //so the whole point is that..when we click on a button we add an innertext element to it that makes it enter once we type.so thats basically how it works
 const numberBtn = document.querySelectorAll('[data-num]')
