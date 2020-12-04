@@ -96,8 +96,8 @@ this.mainResult = ""
         digitOutput = digits.toLocaleString('en', {maximumFractionDigits: 0})
     }
     if (decimals != null) {
-        console.log(decimals+ 'this is the deci');
-        return digitOutput + decimals
+        
+        return `${digitOutput}.${decimals}`
     }else  {
         return digitOutput
     }
