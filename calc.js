@@ -5,7 +5,7 @@ class Calculate {
         this.prevResultBtnText = prevResulted //  you can also actually reference the main variable itself of the queryselectors directly  and not the parameters e.g prevResultBtnTextElement 
         this.mainResultBtnText = mainResulted 
         this.allClear()
-        console.log(this.prevResult);
+      
     
 
         //I get the logic: this is what is happening : the variables this.prevResult and this.mainResult are all in the constructor already loaded via this.allClear() method/function...so  the value of this.prevResult and this.mainResult changes() with every time the button is clicked from line 60 or there about
@@ -83,7 +83,7 @@ this.mainResult = ""
 
     const stringNum = number.toString()
     const digits = parseFloat(stringNum.split('.')[0])//here we split the string because we want a single digirt before the dot('.') and parse/ convert it to numbers/decimals when necessary depending on the code
-    console.log(digits + "thisi sithe diti");
+    
     const decimals = stringNum.split('.')[1]
     //the above code helps to check if there is no digits before the 
     let digitOutput
@@ -97,7 +97,9 @@ this.mainResult = ""
     }
     if (decimals != null) {
         
-        return `${digitOutput}.${decimals}`
+        return digitOutput + "." + decimals
+
+       
     }else  {
         return digitOutput
     }
